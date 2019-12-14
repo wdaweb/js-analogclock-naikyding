@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <!-- self style -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>ROLEX WATCH</title>
+
+</head>
+<body>
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center " style="height:100vh;background: url(img/rolex_bg.webp) no-repeat center;">
+        <div class="row logo text-center  ">
+            <img src="img/rolex-logo.svg" alt=""><br>
+        </div>
+        <div class="row">
+            <div class="col my-4">            
+                <h1>Yacht-Master II</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center w-90 ">
+            <div class="col col-md-6 text-center" style=" min-width: 400px;">
+                <img src="img/rolex_bg.png" alt="" style="width:100%;">
+                <img class="s_sec" src="img/s_sec.png" alt="">
+                <img class="sp" src="img/sec-point.png" alt="">
+                <img class="hour" src="img/rolex_hour.png" alt="">
+                <img src="img/rolex_min.png" alt="" class="min">
+                <img class="sec" src="img/rolex_sec.png" alt="">
+                <img class="point" src="img/rolex_point.png" alt="">
+                <img class="ran" src="img/ran.png" alt="">
+            </div>
+        </div>  
+    </div>
+    
+    <script>
+
+        setInterval(()=>{
+
+        //set nowTime
+        var nowTime = new Date();
+        var sec = nowTime.getSeconds();
+        var m_sec = nowTime.getMilliseconds();
+        var min = nowTime.getMinutes();
+        var hour = nowTime.getHours();
+
+        //sec 30s-> 180deg 15s->90deg 1s->6deg
+        //m-sec 1000s -> 6deg 
+        sec_deg = (sec*6)+(m_sec*.006);
+        //min 15m->90deg 30m->180deg 1m->6deg  +sec 60s 6deg  1s .1deg 
+        min_deg = (min*6)+(sec*.1);
+        //hour 3h->90deg 6h->180deg 1h->30deg  +M 30m->15deg 60m->30deg 1m->.5deg
+        hour_deg = (hour*30)+(min*.5);
+        
+        document.querySelector('.s_sec').style.transform=`rotate(${sec_deg}deg)`;
+        // document.querySelector('.sec').style.transform=`rotate(${sec*6}deg)`;
+        document.querySelector('.min').style.transform=`rotate(${min_deg}deg)`;
+        document.querySelector('.hour').style.transform=`rotate(${hour_deg}deg)`;
+        },100);
+
+    
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
